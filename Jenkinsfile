@@ -5,21 +5,21 @@ pipeline {
         stage('Restore') {
             steps {
                 echo 'Restoring NuGet packages...'
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'dotnet build --configuration $BUILD_CONFIGURATION'
+                bat 'dotnet build --configuration $BUILD_CONFIGURATION'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'dotnet test --no-build --configuration $BUILD_CONFIGURATION'
+                bat 'dotnet test --no-build --configuration $BUILD_CONFIGURATION'
             }
         }
     }
