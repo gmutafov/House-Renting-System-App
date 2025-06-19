@@ -12,14 +12,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                bat 'dotnet build --configuration $BUILD_CONFIGURATION'
+                bat 'dotnet build'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat 'dotnet test --no-build --configuration $BUILD_CONFIGURATION'
+                bat 'dotnet test'
             }
         }
     }
